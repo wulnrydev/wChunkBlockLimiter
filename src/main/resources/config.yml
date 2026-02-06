@@ -1,0 +1,142 @@
+# ============================================
+#     wChunkBlockLimiter Configuration
+# ============================================
+# Optimized for 500+ player servers
+# Author: wulnrydev
+# ============================================
+
+# Enable or disable the plugin globally
+enabled: true
+
+# Default limit for blocks not explicitly listed below
+# Set to -1 for unlimited (no restriction)
+default-limit: -1
+
+# ============================================
+# Block-Specific Limits
+# ============================================
+# Format: MATERIAL_NAME: limit
+# Use Bukkit Material names (case-insensitive)
+# Set to -1 for unlimited, or any positive integer
+# 
+# Performance Note: Only limited blocks are tracked
+# in memory for optimal performance
+# ============================================
+limits:
+  # Storage Blocks
+  HOPPER: 10
+  CHEST: 25
+  TRAPPED_CHEST: 25
+  BARREL: 20
+  SHULKER_BOX: 15
+  ENDER_CHEST: 5
+  
+  # Furnace Family
+  FURNACE: 15
+  BLAST_FURNACE: 10
+  SMOKER: 10
+  
+  # Special Blocks
+  SPAWNER: 2
+  BEACON: 1
+  CONDUIT: 3
+  
+  # Redstone Components
+  DROPPER: 15
+  DISPENSER: 15
+  OBSERVER: 20
+  PISTON: 30
+  STICKY_PISTON: 30
+  REDSTONE_LAMP: 20
+  NOTE_BLOCK: 15
+  REPEATER: 40
+  COMPARATOR: 40
+  
+  # Misc
+  BREWING_STAND: 10
+  LECTERN: 20
+  JUKEBOX: 10
+
+# ============================================
+# Per-World Limit Overrides
+# ============================================
+# Override limits for specific worlds
+# World-specific limits take precedence over global limits
+# If a block is not listed for a world, it uses the global limit
+# ============================================
+world-limits:
+  # Example: Different limits for the Nether
+  world_nether:
+    HOPPER: 20        # Allow more hoppers in Nether
+    SPAWNER: 5        # Allow more spawners in Nether
+    CHEST: 40
+  
+  # Example: Stricter limits for resource world
+  # world_resource:
+  #   HOPPER: 5
+  #   CHEST: 15
+  #   SPAWNER: 1
+  
+  # Example: No limits in creative world
+  # creative:
+  #   HOPPER: -1      # -1 = unlimited
+  #   CHEST: -1
+
+
+# ============================================
+# Sound Settings
+# ============================================
+sounds:
+  # Enable sound notifications when limit is reached
+  enabled: true
+  
+  # Sound type (Bukkit Sound enum)
+  # Examples: BLOCK_NOTE_BLOCK_PLING, ENTITY_VILLAGER_NO, BLOCK_ANVIL_LAND
+  type: BLOCK_NOTE_BLOCK_PLING
+  
+  # Volume (0.0 - 1.0 for normal range, can exceed for louder)
+  volume: 1.0
+  
+  # Pitch (0.5 - 2.0, lower = deeper, higher = sharper)
+  pitch: 0.5
+
+# ============================================
+# Action Bar Settings
+# ============================================
+action-bar:
+  # Show action bar message when limit is reached
+  enabled: true
+
+# ============================================
+# Chat Message Settings  
+# ============================================
+chat-message:
+  # Send chat message when limit is reached (in addition to action bar)
+  # Set to false to only use action bar (less spammy)
+  enabled: false
+
+# ============================================
+# Placement Counter Settings
+# ============================================
+placement-counter:
+  # Show current block count when placing limited blocks
+  # Example: "HOPPER placed (5/10)"
+  enabled: true
+
+# ============================================
+# Piston Protection
+# ============================================
+piston-protection:
+  # Prevent pistons from pushing limited blocks between chunks
+  # This prevents bypassing limits by pushing blocks across chunk boundaries
+  enabled: true
+
+# ============================================
+# Permission Nodes
+# ============================================
+# These can be customized if needed for compatibility
+# with your permission plugin
+# ============================================
+permissions:
+  bypass: "wchunkblocklimiter.bypass"
+  reload: "wchunkblocklimiter.reload"

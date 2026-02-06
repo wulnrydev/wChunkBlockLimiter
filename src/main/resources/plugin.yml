@@ -1,0 +1,38 @@
+name: wChunkBlockLimiter
+version: 1.0.0
+main: dev.wulnry.wchunkblocklimiter.wChunkBlockLimiter
+api-version: 1.20
+author: wulnrydev
+description: Enterprise-grade chunk-based block limiter
+website: https://github.com/wulnrydev
+
+# Optional dependencies
+softdepend: [PlaceholderAPI]
+
+commands:
+  wchunkblocklimiter:
+    description: Main plugin command
+    aliases: [wcbl, chunklimiter]
+    usage: |
+      /<command> reload - Reload configuration
+      /<command> stats - View plugin statistics  
+      /<command> check [chunk] - Check block counts in a chunk
+      /<command> reset <chunk> - Reset a specific chunk
+      /<command> resetworld <world> - Reset all chunks in a world
+    
+permissions:
+  wchunkblocklimiter.*:
+    description: All wChunkBlockLimiter permissions
+    children:
+      wchunkblocklimiter.bypass: true
+      wchunkblocklimiter.reload: true
+      wchunkblocklimiter.admin: true
+  wchunkblocklimiter.bypass:
+    description: Bypass block placement limits
+    default: op
+  wchunkblocklimiter.reload:
+    description: Reload plugin configuration
+    default: op
+  wchunkblocklimiter.admin:
+    description: Use admin commands (stats, check, reset)
+    default: op

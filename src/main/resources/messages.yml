@@ -1,0 +1,62 @@
+# ============================================
+#     wChunkBlockLimiter Messages
+# ============================================
+# Use & for color codes (will be translated automatically)
+# 
+# Available Placeholders:
+#   %block%    - Block type (e.g., HOPPER, CHEST)
+#   %limit%    - Maximum allowed count per chunk
+#   %current%  - Current count of blocks in chunk
+#   %chunk_x%  - Chunk X coordinate
+#   %chunk_z%  - Chunk Z coordinate
+#   %world%    - World name
+#   %player%   - Player name (where applicable)
+#   %prefix%   - Plugin prefix (for chat messages)
+# ============================================
+
+# Global prefix for all messages
+prefix: "&8[&6wCBL&8]&r"
+
+# ============================================
+# Limit Reached Messages
+# ============================================
+limit-reached:
+  # Action bar message (shown above hotbar)
+  action-bar: "&c&lLimit Reached! &7(&e%current%/%limit% %block%&7 per chunk)"
+  
+  # Chat message (optional - enable in config.yml)
+  chat: "%prefix% &cYou cannot place more than &e%limit% &6%block% &cper chunk! &7(Current: &e%current%&7)"
+
+# ============================================
+# Placement Success Messages
+# ============================================
+placement-success:
+  # Shows current count when placing blocks
+  action-bar: "&a%block% &7placed &8(&e%current%&7/&6%limit%&8)"
+
+# ============================================
+# Command Messages
+# ============================================
+reload:
+  success: "%prefix% &aConfiguration reloaded successfully!"
+  failed: "%prefix% &cFailed to reload configuration! Check console for errors."
+  in-progress: "%prefix% &eReloading configuration..."
+
+# ============================================
+# Permission Messages
+# ============================================
+no-permission: "%prefix% &cYou don't have permission to execute this command!"
+
+# ============================================
+# Admin Notifications (Future Feature)
+# ============================================
+# These can be enabled in future versions for staff alerts
+admin:
+  limit-exceeded: "%prefix% &e%player% &7attempted to place &e%block% &7at chunk &e(%chunk_x%, %chunk_z%) &7in &e%world% &7(&cLIMIT: %limit%&7)"
+  
+# ============================================
+# Debug Messages (Future Feature)
+# ============================================
+debug:
+  chunk-scanned: "%prefix% &7Scanned chunk &e(%chunk_x%, %chunk_z%) &7in &e%world% &7- found &a%count% &7limited blocks"
+  cache-cleared: "%prefix% &7Cache cleared - &e%chunks% &7chunks removed from memory"
