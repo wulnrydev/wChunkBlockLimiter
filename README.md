@@ -349,8 +349,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 💬 Support
 
 - **Issues:** [GitHub Issues](../../issues)
-- **Discord:** [Join our server](https://discord.gg/yourserver)
-- **Email:** [support@wulnry.dev](mailto:support@wulnry.dev)
+- **Discord:** wulnrydev
 
 ---
 
